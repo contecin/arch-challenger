@@ -1,3 +1,9 @@
 [submodule "discovery-server"]
 	path = discovery-server
 	url = git@github.com:contecin/discovery-server.git
+[submodule "api-gateway"]
+	path = api-gateway
+	url = git@github.com:contecin/api-gateway.git
+[submodule "produtos-ms"]
+	path = produtos-ms
+	url = git@github.com:contecin/produtos-ms.git
