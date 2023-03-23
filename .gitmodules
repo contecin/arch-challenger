@@ -1,0 +1,3 @@
+[submodule "discovery-server"]
+	path = discovery-server
+	url = git@github.com:contecin/discovery-server.git
