@@ -1,0 +1,95 @@
+version: "3.9"
+
+networks:
+  ms-network:
+    driver: bridge
+
+services:
+  eureka:
+    build: ./discovery-server
+    ports:
+      - "8761:8761"
+    networks:
+      - ms-network
+    environment:
+      - "JAVA_OPTS=-Dinstance.prefer-ip-address=false -Deureka.eureka.instance.hostname=eureka-server -Deureka.client.serviceUrl.defaultZone=http://eureka-server:8761/eureka"
+
+  api-gateway:
+    build: ./api-gateway
+    depends_on:
+      - eureka
+    ports:
+      - "8082:8082"
+    networks:
+      - ms-network
+    environment:
+      - "JAVA_OPTS=-Deureka.client.serviceUrl.defaultZone=http://eureka-server:8761/eureka"
+
+  produtos-ms-8090:
+    build: ./produtos-ms
+    environment:
+      - "JAVA_OPTS=-Deureka.client.serviceUrl.defaultZone=http://eureka-server:8761/eureka"
+      - "SERVER_PORT=8090"
+    depends_on:
+      - eureka
+    ports:
+      - "8090:8090"
+    networks:
+      - ms-network
+
+  produtos-ms-8091:
+    build: ./produtos-ms
+    environment:
+      - "JAVA_OPTS=-Deureka.client.serviceUrl.defaultZone=http://eureka-server:8761/eureka"
+      - "SERVER_PORT=8091"
+    depends_on:
+      - eureka
+    ports:
+      - "8091:8091"
+    networks:
+      - ms-network
+
+  produtos-ms-8092:
+    build: ./produtos-ms
+    environment:
+      - "JAVA_OPTS=-Deureka.client.serviceUrl.defaultZone=http://eureka-server:8761/eureka"
+      - "SERVER_PORT=8092"
+    depends_on:
+      - eureka
+    ports:
+      - "8092:8092"
+    networks:
+      - ms-network
+
+#  axonserver:
+#    image: axoniq/axonserver
+#    hostname: axonserver
+#    volumes:
+#      - axonserver-data:/data
+#      - axonserver-events:/eventdata
+#      - axonserver-config:/config:ro
+#    ports:
+#      - '8024:8024'
+#      - '8124:8124'
+#    networks:
+#      - axon-demo
+
+#volumes:
+#  axonserver-data:
+#    driver: local
+#    driver_opts:
+#      type: none
+#      device: ~/axonserver/data
+#      o: bind
+#  axonserver-events:
+#    driver: local
+#    driver_opts:
+#      type: none
+#      device: ~/axonserver/events
+#      o: bind
+#  axonserver-config:
+#    driver: local
+#    driver_opts:
+#      type: none
+#      device: ~/axonserver/config
+#      o: bind

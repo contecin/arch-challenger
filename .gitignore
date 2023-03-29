@@ -5,6 +5,11 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
+### AXON-SERVER ###
+axonserver-data/
+axonserver-events/
+axonserver-config/
+
 ### STS ###
 .apt_generated
 .classpath
