@@ -6,9 +6,7 @@ build/
 !**/src/test/**/build/
 
 ### AXON-SERVER ###
-axonserver-data/
-axonserver-events/
-axonserver-config/
+/axonserver/
 
 ### STS ###
 .apt_generated
