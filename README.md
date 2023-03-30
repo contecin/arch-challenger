@@ -20,8 +20,8 @@ ___
 ### DOCKER COMPOSE
 
 - editar o arquivo **HOSTS** como administrador da máquina:
-  - [windows](C:\Windows\System32\drivers\etc\hosts)
-  - [linux](/etc/hosts)
+  - [windows path](C:\Windows\System32\drivers\etc\hosts)
+  - [linux path](/etc/hosts)
 
 > mapear o domínio "eureka-server" para o IP da máquina local: \
 > FORMATO: IPAddress DomainName DomainAliases(opcional) \
