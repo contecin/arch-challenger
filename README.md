@@ -8,7 +8,8 @@ ___
 
 1. [Java 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
 2. [Gradle > 7.6.1](https://gradle.org/releases/)
-3. configurar variáveis de ambiente:
+3. [Docker](https://www.docker.com/)
+4. configurar variáveis de ambiente:
     - JAVA_HOME
     - GRADLE_USER_HOME
     - adicionar o *path* dos bins para a variável **PATH**
