@@ -10,9 +10,6 @@ fi
 # verifica se o diretório axonserver/config não existe
 if [ ! -d "./axonserver/config" ]; then
   mkdir -p ./axonserver/config
-
-  # copia o arquivo de configuração do axon server
-  cp ./axonserver.yml ./axonserver/config/
 fi
 
 # verifica se o diretório axonserver/data não existe
@@ -24,5 +21,8 @@ fi
 if [ ! -d "./axonserver/events" ]; then
   mkdir -p ./axonserver/events
 fi
+
+# atualiza o arquivo de configuração do axon server
+cp -Rf ./axonserver.yml ./axonserver/config/
 
 echo "Checagem finalizada!!!"
