@@ -40,5 +40,8 @@ api-gateway-run:
 
 ### DOCKER COMPOSE ###
 
-up:
+create-axonserver:
+	./create-axonserver.sh
+
+up: create-axonserver
 	docker-compose up
