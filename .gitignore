@@ -37,6 +37,6 @@ out/
 .vscode/
 
 ### AXON-SERVER ###
-/my-axon-server/config/
-/my-axon-server/data/
-/my-axon-server/events/
+#/my-axon-server/config/
+#/my-axon-server/data/
+#/my-axon-server/events/
