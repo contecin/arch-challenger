@@ -7,3 +7,6 @@
 [submodule "produtos-ms"]
 	path = produtos-ms
 	url = git@github.com:contecin/produtos-ms.git
+[submodule "my-axon-server"]
+	path = my-axon-server
+	url = git@github.com:contecin/my-axon-server.git
