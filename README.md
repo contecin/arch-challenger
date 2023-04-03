@@ -8,25 +8,57 @@ ___
 
 1. [Java 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
 2. [Gradle > 7.6.1](https://gradle.org/releases/)
-3. [Docker](https://www.docker.com/)
-4. configurar variáveis de ambiente:
+3. configurar variáveis de ambiente:
     - JAVA_HOME
     - GRADLE_USER_HOME
     - adicionar o *path* dos bins para a variável **PATH**
-
-> necessário executar os comandos apontando para a raiz do projeto ou à partir dela
 ---
 
-### DOCKER COMPOSE
+## DOCKER COMPOSE
 
-- editar o arquivo **HOSTS** como administrador da máquina:
-  - no windows: > C:\Windows\System32\drivers\etc\hosts
-  - no linux: > /etc/hosts
+- [Docker](https://www.docker.com/)
+
+### Executando com o Make
+
+#### Windows
+
+1. instalar o chocolatey com powershell:
+    - `Get-ExecutionPolicy`: se retornar **Restricted** execute um dos comandos seguintes
+    - `Set-ExecutionPolicy AllSigned`, `Set-ExecutionPolicy Bypass -Scope Process`
+    - `Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))`
+2. instalar o make: `choco install make`
+
+#### Linux
+
+- `sudo apt update`
+- `sudo apt install make`
+
+#### Comandos
+
+- acessar o menu de ajuda do make: `make help`
+
+- executar todas as aplicações necessárias: `make up`
+
+### Sem o Make
+
+#### Axon Server
+
+criar os seguintes diretórios na raiz do projeto **my-axon-server**:
+
+- config/, data/, events/
+- copiar o arquivo **axonserver.yml** para o diretório **config/**
+
+#### Hosts
+
+editar o arquivo **HOSTS** como administrador da máquina:
+
+- no windows: > C:\Windows\System32\drivers\etc\hosts
+- no linux: > /etc/hosts
 
 > mapear o domínio "eureka-server" para o IP da máquina local: \
 > FORMATO: IPAddress DomainName DomainAliases(opcional) \
 > 127.0.0.1 eureka-server
 
-#### EXECUÇÃO
+#### Execução
+
 - `docker-compose up`
-- com **MAKE** instalado: `make up`
