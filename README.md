@@ -4,22 +4,18 @@ Projeto para base de conhecimento. \
 Aplicação dos melhores design patterns atuais de arquitetura, boas práticas e SOLID
 ___
 
-## REQUISITOS:
+## Usando Docker
 
-1. [Java 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
-2. [Gradle > 7.6.1](https://gradle.org/releases/)
-3. configurar variáveis de ambiente:
-    - JAVA_HOME
-    - GRADLE_USER_HOME
-    - adicionar o *path* dos bins para a variável **PATH**
----
-
-## DOCKER COMPOSE
-
-- [Docker](https://www.docker.com/)
+### Requisitos
+1. Instalar o [Docker](https://www.docker.com/)
+2. Editar o arquivo **HOSTS**
+   - no windows: > C:\Windows\System32\drivers\etc\hosts
+   - no linux: > /etc/hosts
+   - mapear o domínio "eureka-server" para o IP da máquina local
+   > Formado: IPAddress DomainName DomainAliases(opcional) -> 127.0.0.1 eureka-server
 
 ### Executando com o Make
-
+> o make possui somente tags com comandos docker
 #### Windows
 
 1. instalar o chocolatey com powershell:
@@ -29,36 +25,54 @@ ___
 2. instalar o make: `choco install make`
 
 #### Linux
-
 - `sudo apt update`
 - `sudo apt install make`
 
 #### Comandos
-
 - acessar o menu de ajuda do make: `make help`
-
 - executar todas as aplicações necessárias: `make up`
 
 ### Sem o Make
-
-#### Axon Server
-
-criar os seguintes diretórios na raiz do projeto **my-axon-server**:
-
-- config/, data/, events/
-- copiar o arquivo **axonserver.yml** para o diretório **config/**
-
-#### Hosts
-
-editar o arquivo **HOSTS** como administrador da máquina:
-
-- no windows: > C:\Windows\System32\drivers\etc\hosts
-- no linux: > /etc/hosts
-
-> mapear o domínio "eureka-server" para o IP da máquina local: \
-> FORMATO: IPAddress DomainName DomainAliases(opcional) \
-> 127.0.0.1 eureka-server
+#### Configurar estrutura de arquivos para o Axon Server
+1. criar os seguintes diretórios na raiz do projeto **my-axon-server**:
+   - config/
+   - data/
+   - events/
+2. copiar o arquivo **axonserver.yml** para o diretório **config/**
 
 #### Execução
-
 - `docker-compose up`
+---
+
+## Usando Gradle
+
+### Requisitos:
+1. [Java 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
+2. [Gradle > 7.6.1](https://gradle.org/releases/)
+3. configurar variáveis de ambiente para o sistema operacional:
+   - windows
+     >    use o comando **set** em vez do **setx** caso não queira criar a variável permanentemente
+
+     >    remova o argumento **-m** caso queira criar as variáveis somente para o usuário
+     - `setx JAVA_HOME "pasta_de_instalação_do_java\" -m`
+     - `setx GRADLE_USER_HOME "pasta_de_instalação_do_gradle\" -m`
+     - `setx path "%path%;%JAVA_HOME%\bin" -m`
+     - `setx path "%path%;%GRADLE_USER_HOME%\bin" -m`
+   - linux
+     - `export JAVA_HOME=pasta_de_instalação_java_17/`
+     - `export GRADLE_USER_HOME=pasta_de_instalação_do_gradle/`
+     - `export PATH=$PATH:$JAVA_HOME/bin`
+     - `export PATH=$PATH:GRADLE_USER_HOME/bin`
+
+### Build
+
+O build deve ser executado em cada projeto, em sua raiz, através do comando:
+- `gradle clean build`
+
+### Execução
+Após todos os projetos estarem buildados, realizar a execuação dos mesmos na seguinte ordem: \
+1. *my-axon-server*
+2. *discovery-server*
+3. demais projetos
+
+- `gradle bootRun`
