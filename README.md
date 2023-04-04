@@ -67,7 +67,7 @@ ___
 
 ### Build
 
-O build deve ser executado em cada projeto, em sua raiz **menos** no  projeto *my-axon-server*, através do comando:
+O build deve ser executado na raiz de cada projeto, **menos** no  projeto **my-axon-server**, através do comando:
 - `gradle clean build`
 
 ### Execução
