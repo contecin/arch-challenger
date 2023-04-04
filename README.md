@@ -28,9 +28,9 @@ ___
 - `sudo apt update`
 - `sudo apt install make`
 
-#### Comandos
+#### Execução
 - acessar o menu de ajuda do make: `make help`
-- executar todas as aplicações necessárias: `make up`
+- `make up`
 
 ### Sem o Make
 #### Configurar estrutura de arquivos para o Axon Server
