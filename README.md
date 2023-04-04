@@ -29,7 +29,7 @@ ___
 - `sudo apt install make`
 
 #### Execução
-- acessar o menu de ajuda do make: `make help`
+> acessar o menu de ajuda do make: `make help`
 - `make up`
 
 ### Sem o Make
