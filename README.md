@@ -71,11 +71,11 @@ O build deve ser executado na raiz de cada projeto, **menos** no  projeto **my-a
 - `gradle clean build`
 
 ### Execução
-Após todos os projetos estarem buildados, realizar a execuação dos mesmos **segundo a ordem**:
 1. subir o servidor **axon-server**
     > o projeto **my-axon-server** contém somente dados de configuração do servicor axon-server
     - baixar e extrair o [instalador](https://download.axoniq.io/axonserver/AxonServer.zip)
     - mover/copiar o arquivo **axonserver.jar** para a raiz do projeto **my-axon-server**
     - executar o comando shell `./axonserver.jar` na raiz do projeto **my-axon-server**
-2. executar o projeto *discovery-server* e em seguida os demais projetos com o comando abaixo:
-   - `gradle bootRun`
+2. executar
+> primeiro o projeto *discovery-server*, em seguida os demais projetos
+- `gradle bootRun`
