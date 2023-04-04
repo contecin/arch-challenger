@@ -19,9 +19,9 @@ ___
 #### Windows
 
 1. instalar o chocolatey com powershell:
-    - `Get-ExecutionPolicy`: se retornar **Restricted** execute um dos comandos seguintes
-    - `Set-ExecutionPolicy AllSigned`, `Set-ExecutionPolicy Bypass -Scope Process`
-    - `Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))`
+    - `Get-ExecutionPolicy`: se retornar **Restricted** execute um dos comandos abaixo:
+    - `Set-ExecutionPolicy AllSigned` ou `Set-ExecutionPolicy Bypass -Scope Process`
+    - por fim execute `Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))`
 2. instalar o make: `choco install make`
 
 #### Linux
