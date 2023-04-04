@@ -39,6 +39,7 @@ ___
    - data/
    - events/
 2. copiar o arquivo **axonserver.yml** para o diretório **config/**
+3. ou executar o comando shell: `./create-axonserver.sh` na raiz do projeto **my-axon-server**
 
 #### Execução
 - `docker-compose up`
@@ -66,13 +67,15 @@ ___
 
 ### Build
 
-O build deve ser executado em cada projeto, em sua raiz, através do comando:
+O build deve ser executado em cada projeto, em sua raiz menos no projeto **menos** no  projeto *my-axon-server*, através do comando:
 - `gradle clean build`
 
 ### Execução
-Após todos os projetos estarem buildados, realizar a execuação dos mesmos na seguinte ordem: \
-1. *my-axon-server*
-2. *discovery-server*
-3. demais projetos
-
-- `gradle bootRun`
+Após todos os projetos estarem buildados, realizar a execuação dos mesmos **segundo a ordem**:
+1. subir o servidor **axon-server**
+    > o projeto **my-axon-server** contém somente dados de configuração do servicor axon-server
+    - baixar e extrair o [instalador](https://download.axoniq.io/axonserver/AxonServer.zip)
+    - mover/copiar o arquivo **axonserver.jar** para a raiz do projeto **my-axon-server**
+    - executar o comando shell `./axonserver.jar` na raiz do projeto **my-axon-server**
+2. executar o projeto *discovery-server* e em seguida os demais projetos com o comando abaixo:
+   - `gradle bootRun`
