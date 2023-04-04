@@ -77,5 +77,5 @@ O build deve ser executado na raiz de cada projeto, **menos** no  projeto **my-a
     - mover/copiar o arquivo **axonserver.jar** para a raiz do projeto **my-axon-server**
     - executar o comando shell `./axonserver.jar` na raiz do projeto **my-axon-server**
 2. executar
-> primeiro o projeto *discovery-server*, em seguida os demais projetos
-- `gradle bootRun`
+   > primeiro o projeto *discovery-server*, em seguida os demais projetos
+   - `gradle bootRun`
